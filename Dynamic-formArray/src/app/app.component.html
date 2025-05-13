@@ -1,0 +1,16 @@
+<form [formGroup]="myform" (ngSubmit) = "onSubmit()">
+  <label>Name:</label>
+  <input formControlName="name">
+  <div formArrayName="skills">
+    <div *ngFor = "let skill of skills.controls;let i= index">
+      <label>Skills {{i+1}}:
+      </label>
+      <input [formControlName]="i">
+      <button type="button" (click)="removeSkill(i)">Remove</button>
+    </div>
+  </div>
+  <button type="button" (click)="addSkill()">Add
+  </button>
+  <button type="submit"> Submit
+  </button>
+</form>
